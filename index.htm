@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papa Johns</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- npx tailwindcss -i ./src/input.css -o ./src/output.css --watch -->
+    <link href="src/output.css" rel="stylesheet">
+</head>
+
+<body class="font-sans">
+    <header>
+        <div
+            class="container mx-auto px-8 bg-white h-[100px] flex items-center justify-between relative lg:text-[23px] font-bold">
+            <img src="img/logo.png" alt="logo  PapaJohns"
+                class="sm:w-[120px] w-[80px] z-50 lg:w-[220px] lg:translate-y-1/4 xl:hidden" />
+            <ul class="hidden lg:flex gap-4">
+                <li>
+                    <a href="#">Restoranlar</a>
+                </li>
+                <li>
+                    <a href="#">PapaBonus</a>
+                </li>
+            </ul>
+            <div class="flex justify-evenly items-center flex-1 lg:justify-end lg:gap-8">
+                <div class="text-center lg:flex lg:items-center ">
+                    <img src="img/flag_az.png" alt="flag-az" class="w-[30px]">
+                    <span class="lg:hidden">Az</span>
+                    <span class="hidden lg:inline lg:pl-2">Azərbaycanca</span>
+                </div>
+                <div class="text-center">
+                    <i class="fa fa-user block text-2xl lg:hidden"></i>
+                    <span>Giriş</span>
+                </div>
+                <div onclick="showCart()" class="text-center relative cursor-pointer">
+                    <i class="fa fa-shopping-basket block text-3xl"></i>
+                    <span>0 ₼ </span>
+                    <div
+                        class="bg-red-600 w-[20px] h-[20px] absolute top-0 right-0 rounded-full font-thin text-[12px] flex justify-center items-center text-white">
+                        0</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex relative bg-[#AD0F14] lg:justify-end">
+            <div class="w-[70px] h-[80px] bg-custom-gradient-left absolute top-0 left-0 lg:hidden"></div>
+            <img src="img/logo.png" alt="logo  PapaJohns"
+                class=" hidden xl:block z-50 w-[270px] h-[130px] -translate-y-1/4 translate-x-1/4" />
+            <ul
+                class=" uppercase px-8 overflow-x-scroll font-bold text-[18px] text-white flex justify-between items-center min-h-[80px] lg:flex-wrap w-full lg:justify-end lg:overflow-x-hidden lg:min-h-[120px] lg:text-2xl lg:gap-8 py-8">
+                <li class="hover:text-[#ffffff7e]"><a href="#">Kampaniyalar</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Papadias</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Pizza</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Qelyanalti</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Salat</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Pasta</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Ichki</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Desert</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Sous</a></li>
+            </ul>
+            <div class="w-[70px] h-[80px] bg-custom-gradient-right absolute top-0 right-0 lg:hidden"></div>
+        </div>
+    </header>
+    <main class="container mx-auto bg-white">
+        <div class="flex justify-center items-center gap-4 bg-gray-100 py-5 my-8">
+            <h2 class="hidden lg:flex  text-2xl lg:text-3xl font-bold">Promo kodunuz var?
+            </h2>
+            <p class="text-[#0F9675] hidden lg:flex text-2xl lg:text-3xl font-bold"> Endirimden istidafe edin!</p>
+            <input
+                class="lg:w-fit  w-4/6 bg-white border border-[#0F9675] rounded-lg h-[45px]  text-lg px-2.5 outline-none flex justify-center"
+                placeholder="Promo kodu daxil edin" />
+            <button class="bg-[#0F9675] px-6 py-3 rounded-lg text-white font-bold">OK</button>
+        </div>
+        <ul
+            class="flex justify-start items-center gap-4 bg-gray-100 pl-4 py-5 my-8 font-bold text-[14px] lg:text-2xl flex-wrap">
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Hamisi</a></li>
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Toyuqlu</a></li>
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Et ile</a></li>
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Veg</a></li>
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Acili</a></li>
+        </ul>
+        <div id="cartItems" class="fixed inset-0 z-[60] bg-[#0000003a] w-full justify-center items-center hidden">
+            <div class="flex-col p-6 space-y-4 sm:p-10 w-full md:w-3/6 bg-white text-gray-800 z-50">
+                <div class="flex justify-between">
+                    <h2 class="text-xl font-semibold">Your cart</h2>
+                    <button onclick="showCart()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
+                </div>
+                <ul id="addedItems" class="flex flex-col divide-y divide-gray-300">
+                </ul>
+                <div class="space-y-1 text-right">
+                    <p>Total amount:
+                        <span id="total" class="font-semibold"></span>
+                    </p>
+                    <p class="text-sm text-gray-600">Not including taxes and shipping costs</p>
+                </div>
+            </div>
+        </div>
+        <div id="pizza-gallery"
+            class="container mx-auto bg-white grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+        </div>
+    </main>
+    <footer class="bg-[#AD0F14] ">
+        <div
+            class="container mx-auto text-center min-h-[100px]  text-white flex flex-col lg:flex-row text-[18px] lg:text-[22px] gap-8 py-8 font-bold justify-between items-center">
+            <ul class="flex flex-col lg:flex-1 lg:flex-row lg:order-1 justify-start gap-8 lg:pl-14">
+                <li class="hover:text-[#ffffff7e]"><a href="#">Haqqimizda</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Sual-Cavab</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Karyera</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Xemir</a></li>
+                <li class="hover:text-[#ffffff7e]"><a href="#">Papa Talk</a></li>
+            </ul>
+            <p class="lg:order-0">&copy; PJA 2024</p>
+            <ul class="flex gap-8 text-3xl lg:order-2">
+                <li><a href="#" class="fa-brands fa-facebook-f"></a></li>
+                <li><a href="#" class="fa-brands fa-twitter"></a></li>
+                <li><a href="#" class="fa-brands fa-instagram"></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
