@@ -37,7 +37,7 @@
                     <i class="fa fa-user block text-2xl lg:hidden"></i>
                     <span>Giriş</span>
                 </div>
-                <div onclick="showCart()" class="text-center relative cursor-pointer">
+                <div onclick="popup()" class="text-center relative cursor-pointer">
                     <i class="fa fa-shopping-basket block text-3xl"></i>
                     <span>0 ₼ </span>
                     <div
@@ -83,11 +83,21 @@
             <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Veg</a></li>
             <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Acili</a></li>
         </ul>
+        <div id="itemShow" class="fixed inset-0 z-[60] bg-[#0000003a] w-full justify-center items-center hidden">
+            <div class="flex-col p-6 space-y-4 sm:p-10 w-full md:w-3/6 bg-white text-gray-800 z-50">
+                <div class="flex justify-end">
+                    <button onclick="popup2()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
+                </div>
+                <div id="popUpItems">
+
+                </div>
+            </div>
+        </div>
         <div id="cartItems" class="fixed inset-0 z-[60] bg-[#0000003a] w-full justify-center items-center hidden">
             <div class="flex-col p-6 space-y-4 sm:p-10 w-full md:w-3/6 bg-white text-gray-800 z-50">
                 <div class="flex justify-between">
                     <h2 class="text-xl font-semibold">Your cart</h2>
-                    <button onclick="showCart()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
+                    <button onclick="popup()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
                 </div>
                 <ul id="addedItems" class="flex flex-col divide-y divide-gray-300">
                 </ul>
@@ -99,6 +109,7 @@
                 </div>
             </div>
         </div>
+
         <div id="pizza-gallery"
             class="container mx-auto bg-white grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
         </div>
