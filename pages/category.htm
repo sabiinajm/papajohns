@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- npx tailwindcss -i ./src/input.css -o ./src/output.css --watch -->
     <!-- npx json-server ./data/db.json -->
-    <link href="src/output.css" rel="stylesheet">
+    <link href="../src/output.css" rel="stylesheet">
 </head>
 
 <body class="font-sans">
     <header>
         <div
             class="container mx-auto px-8 bg-white h-[100px] flex items-center justify-between relative lg:text-[23px] font-bold">
-            <a href="/index.htm"><img src="img/logo.png" alt="logo  PapaJohns"
+            <a href="../index.htm"><img src="../img/logo.png" alt="logo  PapaJohns"
                 class="sm:w-[120px] w-[80px] z-50 lg:w-[220px] lg:translate-y-1/4 xl:hidden" /></a>
             <ul class="hidden lg:flex gap-4">
                 <li>
@@ -31,7 +30,7 @@
             </ul>
             <div class="flex justify-evenly items-center flex-1 lg:justify-end lg:gap-8">
                 <div class="text-center lg:flex lg:items-center ">
-                    <img src="img/flag_az.png" alt="flag-az" class="w-[30px]">
+                    <img src="../img/flag_az.png" alt="flag-az" class="w-[30px]">
                     <span class="lg:hidden">Az</span>
                     <span class="hidden lg:inline lg:pl-2">Azərbaycanca</span>
                 </div>
@@ -50,7 +49,7 @@
         </div>
         <div class="flex relative bg-[#AD0F14] lg:justify-end">
             <div class="w-[70px] h-[80px] bg-custom-gradient-left absolute top-0 left-0 lg:hidden"></div>
-            <a href="/index.htm"><img src="img/logo.png" alt="logo  PapaJohns"
+            <a href="../index.htm"><img src="../img/logo.png" alt="logo  PapaJohns"
                 class=" hidden xl:block z-50 w-[270px] h-[130px] -translate-y-1/4 translate-x-1/4" /></a>
             <ul id="menu"
                 class=" uppercase px-8 overflow-x-scroll font-bold text-[18px] text-white flex justify-between items-center min-h-[80px] lg:flex-wrap w-full lg:justify-center lg:overflow-x-hidden lg:min-h-[120px] lg:text-2xl lg:gap-8 py-8">
@@ -68,32 +67,45 @@
                 placeholder="Promo kodu daxil edin" />
             <button class="bg-[#0F9675] px-6 py-3 rounded-lg text-white font-bold">OK</button>
         </div>
-        <div class="w-full h-full swiper  mySwiper relative mb-8">
-            <div class="swiper-wrapper bg-white">
-                <div class="swiper-slide text-center flex justify-center items-center">
-                    <img class="block w-full h-full object-cover"
-                        src="img/İki-boyuk-chiken-bbq-and-cheddar-klub-banner (1).png">
+        <ul
+            class="flex justify-start items-center gap-4 bg-gray-100 pl-4 py-5 my-8 font-bold text-[14px] lg:text-2xl flex-wrap">
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Hamisi</a></li>
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Toyuqlu</a></li>
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Et ile</a></li>
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Veg</a></li>
+            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Acili</a></li>
+        </ul>
+        <div id="itemShow" class="fixed inset-0 z-[60] bg-[#0000003a] w-full justify-center items-center hidden">
+            <div class="flex-col p-6 space-y-4 sm:p-10 w-full md:w-3/6 bg-white text-gray-800 z-50">
+                <div class="flex justify-end">
+                    <button onclick="popup2()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
                 </div>
-                <div class="swiper-slide text-center flex justify-center items-center">
-                    <img class="block w-full h-full object-cover" src="img/Super-papa-and-chiken-parmezan-banner.png">
-                </div>
-                <div class="swiper-slide text-center flex justify-center items-center">
-                    <img class="block w-full h-full object-cover" src="img/Cola-Orta-Mekrika-&-Rastik-banner.png">
-                </div>
-                <div class="swiper-slide text-center flex justify-center items-center">
-                    <img class="block w-full h-full object-cover" src="img/bir-il-birlikde-azadliq-banner.png">
-                </div>
-                <div class="swiper-slide text-center flex justify-center items-center">
-                    <img class="block w-full h-full object-cover" src="img/Sayt Banner Bol Bol 2023.jpg">
-                </div>
-                <div class="swiper-slide text-center flex justify-center items-center">
-                    <img class="block w-full h-full object-cover" src="img/parklara-chatdirilma-banner-new.png">
+                <div id="popUpItems">
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
+        </div>
+        <div id="cartItems" class="fixed inset-0 bg-[#0000003a] z-[80] w-full justify-center items-center hidden">
+            <div class="flex-col p-6 space-y-4 sm:p-10 w-full md:w-3/6 bg-white text-gray-800 z-50">
+                <div class="flex justify-between">
+                    <h2 class="text-xl font-semibold">Your cart</h2>
+                    <button onclick="popup()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
+                </div>
+                <ul id="addedItems" class="flex flex-col divide-y divide-gray-300 z-[80]">
+                </ul>
+                <div class="space-y-1 text-right">
+                    <p>Total amount:
+                        <span id="total" class="font-semibold"></span>
+                    </p>
+                    <p class="text-sm text-gray-600">Not including taxes and shipping costs</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="pizza-gallery"
+            class="container mx-auto bg-white grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
         </div>
     </main>
-    <footer class="bg-[#AD0F14]">
+    <footer class="bg-[#AD0F14] ">
         <div
             class="container mx-auto text-center min-h-[100px]  text-white flex flex-col lg:flex-row text-[18px] lg:text-[22px] gap-8 py-8 font-bold justify-between items-center">
             <ul class="flex flex-col lg:flex-1 lg:flex-row lg:order-1 justify-start gap-8 lg:pl-14">
@@ -111,51 +123,9 @@
             </ul>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true
-            },
-            autoplay: {
-                delay: 3000
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const bullets = document.querySelectorAll('.swiper-pagination-bullet')
-
-            bullets.forEach(bullet => {
-                bullet.style.backgroundColor = '#fff'
-                bullet.style.border = '3px solid #0F9675'
-                bullet.style.width = '18px'
-                bullet.style.height = '18px'
-                bullet.style.opacity = '1'
-
-                bullet.addEventListener('click', () => {
-                    bullets.forEach(b => b.style.backgroundColor = '#fff')
-                    bullet.style.backgroundColor = '#0F9675'
-                })
-            });
-
-            const activeBullet = document.querySelector('.swiper-pagination-bullet-active');
-            if (activeBullet) {
-                activeBullet.style.backgroundColor = '#0F9675'
-            }
-
-            swiper.on('slideChange', () => {
-                bullets.forEach(bullet => {
-                    bullet.style.backgroundColor = '#fff'
-                });
-
-                const activeBullet = document.querySelector('.swiper-pagination-bullet-active')
-                activeBullet.style.backgroundColor = '#0F9675'
-            });
-        });
-
-    </script>
-    <script src="/js/header.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/category.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>

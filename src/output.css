@@ -647,6 +647,10 @@ video {
   position: absolute;
 }
 
+.\!relative {
+  position: relative !important;
+}
+
 .relative {
   position: relative;
 }
@@ -695,6 +699,10 @@ video {
   z-index: 60;
 }
 
+.z-\[80\] {
+  z-index: 80;
+}
+
 .float-start {
   float: inline-start;
 }
@@ -739,6 +747,10 @@ video {
   clear: none;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -746,6 +758,10 @@ video {
 
 .my-8 {
   margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mb-8 {
   margin-bottom: 2rem;
 }
 
@@ -2395,6 +2411,11 @@ video {
   font-variant-numeric: normal;
 }
 
+.\!ordinal {
+  --tw-ordinal: ordinal !important;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction) !important;
+}
+
 .ordinal {
   --tw-ordinal: ordinal;
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
@@ -3027,6 +3048,10 @@ video {
 
   .lg\:justify-end {
     justify-content: flex-end;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
   }
 
   .lg\:gap-8 {
