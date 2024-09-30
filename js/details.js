@@ -3,7 +3,7 @@ const categ = urlCurr[0].split("=").at(-1)
 const id = urlCurr[1].split("=").at(-1)
 const MEHSUL = []
 
-fetch(`http://localhost:3000/${categ}/${id}`)
+fetch(`https://papajson.vercel.app/${categ}/${id}`)
     .then(res => res.json())
     .then(data => {
         MEHSUL.push(data)

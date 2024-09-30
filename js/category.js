@@ -1,7 +1,7 @@
 const url = window.location.search.split("=").at(-1)
 
 const DATA = []
-fetch(`http://localhost:3000/${url}`)
+fetch(`https://papajson.vercel.app/${url}`)
     .then(res => res.json())
     .then(item => {
         DATA.push(...item)
