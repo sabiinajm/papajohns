@@ -7,16 +7,11 @@ fetch(`http://localhost:3000/${url}`)
         DATA.push(...item)
         displayCards()
     })
-    .catch(arr => {
-        alert("Axtarisiniz uzre netice tapilmadi")
-    })
-
 
 function displayCards() {
-    let kod = ''
-    DATA.map((card, index) => {
-        kod += `
-            <div onclick="openItemPop(${index}), popup2()" class="flex flex-col p-4 gap-3">
+    DATA.map((card) => {
+        pizzaGallery.innerHTML += `
+            <a href="./details.htm?category=${card.category}&id=${card.id}" class="flex flex-col p-4 gap-3">
                 <div class="min-h-[260px]">
                     <img src="${card.img}" alt="${card.title}" class="w-full h-full object-cover" />
                 </div>
@@ -25,8 +20,7 @@ function displayCards() {
                     <button class="bg-[#0F9675] px-4 py-2 rounded-lg text-white text-[18px] whitespace-nowrap">Bunu seç</button>
                 </div>
                 <p class="p-4">${card.composition}</p>
-            </div>
+            </a>
         `
     })
-    pizzaGallery.innerHTML = kod
 }

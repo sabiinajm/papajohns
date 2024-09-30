@@ -57,44 +57,24 @@
             <div class="w-[70px] h-[80px] bg-custom-gradient-right absolute top-0 right-0 lg:hidden"></div>
         </div>
     </header>
-    <main class="container mx-auto bg-white max-w-full md:max-w-[90%]">
-        <div class="flex justify-center items-center gap-4 bg-gray-100 p-5 my-8">
-            <h2 class="hidden lg:flex  text-2xl lg:text-3xl font-bold">Promo kodunuz var?
-            </h2>
-            <p class="text-[#0F9675] hidden lg:flex text-2xl lg:text-3xl font-bold"> Endirimden istidafe edin!</p>
-            <input
-                class="lg:w-fit  w-4/6 bg-white border border-[#0F9675] rounded-lg h-[45px]  text-lg px-2.5 outline-none flex justify-center"
-                placeholder="Promo kodu daxil edin" />
-            <button class="bg-[#0F9675] px-6 py-3 rounded-lg text-white font-bold">OK</button>
-        </div>
-        <ul
-            class="flex justify-start items-center gap-4 bg-gray-100 pl-4 py-2 font-bold text-[14px] lg:text-[1.4rem] flex-wrap">
-            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Hamisi</a></li>
-            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Toyuqlu</a></li>
-            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Et ile</a></li>
-            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Veg</a></li>
-            <li class="transition duration-200 hover:text-[#AD0F14]"><a href="#">Acili</a></li>
-        </ul>
-        <div id="cartItems" class="fixed inset-0 bg-[#0000003a] z-[80] w-full justify-center items-center hidden">
-            <div class="flex-col p-6 space-y-4 sm:p-10 w-full md:w-3/6 bg-white text-gray-800 z-50">
-                <div class="flex justify-between">
-                    <h2 class="text-xl font-semibold">Your cart</h2>
-                    <button onclick="popup()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
-                </div>
-                <ul id="addedItems" class="flex flex-col divide-y divide-gray-300 z-[80]">
-                </ul>
-                <div class="space-y-1 text-right">
-                    <p>Total amount:
-                        <span id="total" class="font-semibold"></span>
-                    </p>
-                    <p class="text-sm text-gray-600">Not including taxes and shipping costs</p>
-                </div>
+    <main class="py-5 container mx-auto max-w-[90%]">
+        <div id="cartItems" class="fixed inset-0 z-50 bg-[#0000003a] w-full justify-center items-center hidden"></div>
+        <div id="cart" class="hidden fixed z-[100] flex-col p-6 space-y-4 sm:p-10 w-[90%] bg-white text-gray-800">
+            <div class="flex justify-between">
+                <h2 class="text-xl font-semibold">Your cart</h2>
+                <button onclick="popup()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
+            </div>
+            <ul id="addedItems" class="flex flex-col divide-y divide-gray-300 z-[80]">
+            </ul>
+            <div class="space-y-1 text-right">
+                <p>Total amount:
+                    <span id="total" class="font-semibold"></span>
+                </p>
+                <p class="text-sm text-gray-600">Not including taxes and shipping costs</p>
             </div>
         </div>
-
-        <div id="pizza-gallery"
-            class="container mx-auto bg-white grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4">
         </div>
+        <div id="content" class="flex flex-col md:flex-row"></div>
     </main>
     <footer class="bg-[#AD0F14] ">
         <div
@@ -116,6 +96,7 @@
     </footer>
     <script src="../js/header.js"></script>
     <script src="../js/category.js"></script>
+    <script src="../js/details.js"></script>
     <script src="../js/app.js"></script>
 </body>
 
