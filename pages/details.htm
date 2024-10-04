@@ -40,9 +40,9 @@
                 </div>
                 <div onclick="popup()" class="text-center relative cursor-pointer">
                     <i class="fa fa-shopping-basket block text-3xl"></i>
-                    <span id="totalBasket">0 ₼ </span>
-                    <div id="totalBasket"
-                        class="bg-red-600 w-[20px] h-[20px] absolute top-0 right-0 rounded-full font-thin text-[12px] flex justify-center items-center text-white">
+                    <span class="totalBasket">0 ₼ </span>
+                    <div
+                        class="totalCount bg-red-600 w-[20px] h-[20px] absolute top-0 right-0 rounded-full font-thin text-[12px] flex justify-center items-center text-white">
                         0</div>
                 </div>
             </div>
@@ -58,8 +58,11 @@
         </div>
     </header>
     <main class="py-5 container mx-auto max-w-[90%]">
-        <div id="cartItems" class="fixed inset-0 z-50 bg-[#0000003a] w-full justify-center items-center hidden"></div>
-        <div id="cart" class="hidden fixed top-12 z-[100] flex-col p-6 space-y-4 sm:p-10 w-[90%] bg-white text-gray-800">
+        <div id="cartItems" onclick="popup()"
+            class="fixed inset-0 z-50 bg-[#0000003a] w-full justify-center items-center hidden"></div>
+        <div class="flex justify-center">
+            <div id="cart"
+            class="hidden fixed top-12 z-[100] flex-col p-6 space-y-4 sm:p-10 w-[90%] md:w-[70%]  bg-white text-gray-800">
             <div class="flex justify-between">
                 <h2 class="text-xl font-semibold">Your cart</h2>
                 <button onclick="popup()" class="text-[#AD0F14] hover:scale-125 hover:underline">close</button>
